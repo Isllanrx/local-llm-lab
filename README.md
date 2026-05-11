@@ -1,66 +1,193 @@
-# Llama Educacional
+# Local LLM Desktop Platform
 
-Interface gráfica profissional para interação com modelos de inteligência artificial através do ecossistema Ollama.
+Cross-platform desktop interface for interacting with local AI models through the Ollama ecosystem, designed with modular architecture, asynchronous processing and scalable desktop workflows.
 
-## Visão Geral
-O Llama Educacional provê uma camada de abstração sobre o Ollama CLI, oferecendo uma experiência de usuário unificada para sistemas Windows e Linux. A arquitetura foi desenvolvida priorizando a separação de responsabilidades e a escalabilidade modular.
+The platform provides a unified graphical experience for Windows and Linux environments while abstracting direct interaction with the Ollama CLI.
 
-## Arquitetura do Sistema
+---
+
+# Overview
+
+This project delivers a structured desktop application layer on top of Ollama, enabling local LLM interaction through a modern GUI architecture focused on maintainability, scalability and runtime stability.
+
+The system was designed around Separation of Concerns (SoC), isolating UI, business logic and infrastructure responsibilities.
+
+---
+
+# System Architecture
+
 ```mermaid
 graph TD
     A[main.py] --> B[OllamaApp - UI]
     B --> C[ChatManager - Business Logic]
     B --> D[OllamaClient - Core Integration]
     C --> E[Log System]
-    D --> F[Ollama CLI / Binaries]
-    
-    subgraph UI Layer
+    D --> F[Ollama CLI / Runtime]
+
+    subgraph UI_Layer [UI Layer]
         B
     end
-    
-    subgraph Core Layer
+
+    subgraph Core_Layer [Core Layer]
         C
         D
     end
-    
-    subgraph Infrastructure
+
+    subgraph Infrastructure_Layer [Infrastructure]
         E
         F
     end
 ```
 
-## Componentes Técnicos
-- **Modularização:** Divisão clara entre interface (UI), lógica de domínio (Core) e utilitários.
-- **Cross-Platform Integration:** Detecção automática de sistema operacional e ajuste de comandos nativos.
-- **State Management:** Gerenciamento de múltiplas sessões de chat de forma independente e persistente.
-- **Asynchronous Execution:** Processamento de requisições em threads separadas para garantir a fluidez da interface.
+---
 
-## Requisitos de Sistema
-- Python 3.10 ou superior.
-- Ollama instalado e disponível no PATH global.
+# Architecture Components
 
-## Instalação e Execução
-1. Instale as dependências necessárias:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Inicie o sistema:
-   ```bash
-   python main.py
-   ```
+## UI Layer
 
-## Estrutura de Diretórios
-- `src/core`: Integração com serviços de IA e regras de negócio de chat.
-- `src/ui`: Implementação da interface gráfica baseada em CustomTkinter.
-- `src/utils`: Helpers para sistema de arquivos, tempo e subprocessos.
-- `src/config`: Parametrizador global de limites, temas e caminhos.
-- `logs/`: Armazenamento automatizado de sessões em texto simples.
+Responsible for:
 
-## Desenvolvimento
-- **Linguagem:** Python
-- **Framework UI:** CustomTkinter
-- **Runtime IA:** Ollama
+- Desktop interface rendering
+- User interaction workflows
+- Session visualization
+- Chat orchestration
+
+## Core Layer
+
+Handles:
+
+- Chat business logic
+- Local AI interaction workflows
+- Session state management
+- Runtime communication abstraction
+
+## Infrastructure Layer
+
+Responsible for:
+
+- Logging system
+- Process execution
+- Native command handling
+- Ollama runtime integration
 
 ---
-Desenvolvido por **Isllan Toso**
+
+# Technical Features
+
+- Modular desktop architecture
+- Cross-platform runtime integration
+- Local AI model interaction
+- Multi-session chat management
+- Persistent conversation workflows
+- Asynchronous request processing
+- Native Ollama CLI abstraction
+- Structured logging system
+- Thread-safe UI execution
+
+---
+
+# Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Language | Python |
+| Desktop UI | CustomTkinter |
+| AI Runtime | Ollama |
+| Runtime Integration | Native CLI/Subprocess |
+| Logging | File-based session logs |
+
+---
+
+# Directory Structure
+
+| Path | Description |
+|---|---|
+| `src/core` | AI integration and business logic |
+| `src/ui` | CustomTkinter desktop interface |
+| `src/utils` | Utility helpers and subprocess management |
+| `src/config` | Global configuration and runtime settings |
+| `logs/` | Persistent chat session storage |
+
+---
+
+# Runtime Features
+
+The application includes:
+
+- Automatic operating system detection
+- Native command adaptation
+- Isolated thread execution
+- Independent chat session management
+- Persistent text-based logging workflows
+
+---
+
+# System Requirements
+
+- Python 3.10+
+- Ollama installed and available in the global PATH
+
+---
+
+# Installation
+
+## Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Run Application
+
+```bash
+python main.py
+```
+
+---
+
+# Engineering Principles
+
+- Separation of Concerns (SoC)
+- Modular Desktop Architecture
+- Asynchronous Processing
+- Cross-Platform Compatibility
+- Maintainable Runtime Design
+- Scalable Application Structure
+- Thread-Safe UI Workflows
+
+---
+
+# Use Cases
+
+- Local AI experimentation
+- Desktop LLM interaction
+- Offline AI tooling
+- Educational AI environments
+- Local inference workflows
+
+---
+
+# Future Improvements
+
+Potential platform enhancements:
+
+- Streaming token rendering
+- Multi-model orchestration
+- Embedded vector search
+- Local memory persistence
+- Plugin-based runtime extensions
+- GPU monitoring integration
+
+---
+
+# License
+
+This project is available under the MIT License.
+
+---
+
+Developed by **Isllan Toso Pereira**
+
 [LinkedIn Profile](https://www.linkedin.com/in/isllantoso/)
