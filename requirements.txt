@@ -1,0 +1,4 @@
+customtkinter
+webbrowser
+datetime
+# O restante são libs built-in do Python
